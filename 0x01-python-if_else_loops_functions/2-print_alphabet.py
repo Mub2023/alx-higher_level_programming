@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import string
-print(string.ascii_lowercase, end="")
+for alph in range(97, 123):
+    print("{}".format(chr(alph)), end="")
