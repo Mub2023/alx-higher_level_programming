@@ -1,9 +1,13 @@
-                *** 0x01. Python - if/else, loops, functions ***
+                ** 0x01. Python - if/else, loops, functions **
                 AUTH : Mub2023
                 
                 
                 
-    0. Positive anything is better than negative nothing
+                
+ ![python](https://github.com/Mub2023/alx-higher_level_programming/blob/master/0x01-python-if_else_loops_functions/giphy.gif)
+ 
+ 
+0. Positive anything is better than negative nothing
 mandatory
 This program will assign a random signed number to the variable number each time it is executed. Complete the source code in order to print whether the number stored in the variable number is positive or negative.
 
