@@ -1,6 +1,9 @@
-#include <stdio.h>
 #include <Python.h>
+#include <object.h>
+#include <listobject.h>
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
  * print_python_list_info - prints some basic info about Python lists.
  * @p: pointer of list
@@ -22,6 +25,6 @@ void print_python_list_info(PyObject *p)
 		printf("Element %d: ", x);
 
 		obi = PyList_GetItem(p, x);
-		printf("%s\n", PyTYPE(obi)->tp_name)
+		printf("%s\n", Py_TYPE(obi)->tp_name);
 	}
 }
