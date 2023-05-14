@@ -6,14 +6,14 @@
  */
 listint_t *reverse(listint_t **head)
 {
-	listint_t *N = *head, *next, *prev = NULL;
+	listint_t *N1 = *head, *next, *prev = NULL;
 
-	while (N)
+	while (N1)
 	{
-		next = N->next;
-		N->next = prev;
-		prev = N;
-		N = next;
+		next = N1->next;
+		N1->next = prev;
+		prev = N1;
+		N1 = next;
 	}
 	*head = prev;
 	return (*head);
@@ -30,16 +30,26 @@ size_t s = 0, x;
 
 if (*head == NULL || (*head)->next == NULL)
 	return (1);
+
 tm = *head;
 while (tm)
 {
 	s++;
 	tm = tm->next;
 }
+
+tm = *head;
+
+for (x = 0; x < (s / 2) -1; x++)
+tm = tm->next;
+
+if ((s % 2) == 0 && tm->n != tm->next->n)
+	return (0);
+
 tm = tm->next->next;
 rev = reverse(&tm);
 midl = rev;
-tm = rev;
+tm = *head;
 while (rev)
 {
 	if (tm->n != rev->n)
