@@ -1,3 +1,7 @@
+***0x04. Python - More Data Structures: Set, Dictionary***
+
+***Auth:mub2020***
+
 0. Squared simple
 mandatory
 Write a function that computes the square value of all integers of a matrix.
@@ -696,3 +700,5 @@ Repo:
 GitHub repository: alx-higher_level_programming
 Directory: 0x04-python-more_data_structures
 File: 103-python.c
+
+***thanks for checking me***
