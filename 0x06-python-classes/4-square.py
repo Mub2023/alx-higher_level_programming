@@ -3,7 +3,7 @@
 
 
 class Square:
-    """an new Square."""
+    """An new Square."""
 
     def __init__(self, size=0):
         """Initiaze the new class and its args.
@@ -19,7 +19,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """sets the current size of the square."""
+        """Sets the current size of the square."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
