@@ -61,10 +61,11 @@ class Square:
             for y in range(self.__size):
                 print("#", end="")
             print("")
+
     def __str__(self):
         if self.__size != 0:
             print("\n" * self.__position[1], end="")
-            for x in range(self.__size):
+            for x in range(0, self.__size):
                 print(" " * self.__position[0], end="")
                 print("#" * self.__size)
         return ""
