@@ -65,8 +65,10 @@ class Square:
     def __str__(self):
         """prints the square the same behavior as my_print()"""
         if self.__size != 0:
-            print("\n" * self.__position[1], end="")
+            [print("") for w in range(0, self.__position[1])]
         for x in range(0, self.__size):
-            print(" " * self.__position[0], end="")
-            print("#" * self.__size)
-        return ""
+            [print(" ", end="") for a in range(0, self.__position[0])]
+            [print("#", end="") for b in range(0, self.__size)]
+            if x != self.__size - 1:
+                print("")
+        return ("")
