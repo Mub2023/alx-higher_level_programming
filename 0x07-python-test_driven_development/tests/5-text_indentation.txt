@@ -1,0 +1,27 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("""hello world! ! ! !""")
+hello world! ! ! !
+>>> text_indentation(12)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+>>> text_indentation(a)
+Traceback (most recent call last):
+...
+NameError: name 'a' is not defined
+>>> text_indentation("   ?    ")
+   ?
+<BLANKLINE>
+<BLANKLINE>
+>>> text_indentation("no? o: o. ")
+no?
+<BLANKLINE>
+o:
+<BLANKLINE>
+o.
+<BLANKLINE>
