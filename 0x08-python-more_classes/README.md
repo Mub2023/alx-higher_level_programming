@@ -2,6 +2,10 @@
 
 ***Auth:Mub2023***
 
+
+***Run *-main.py***
+
+
 0. Simple rectangle
 mandatory
 Write an empty class Rectangle that defines a rectangle:
