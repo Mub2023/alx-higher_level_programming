@@ -83,10 +83,6 @@ class Rectangle:
         """check if the rectangle 1 is greater than rectangle 2"""
         return self.area() >= other.area()
 
-    def __lt__(self, other):
-        """check if the rectangle 2 is greater than rectangle 1"""
-        return self.area() < other.area()
-
     def bigger_or_equal(rect_1, rect_2):
         """returns the biggest rectangle based on the area"""
         if not isinstance(rect_1, Rectangle) or rect_1 is None:
@@ -95,5 +91,5 @@ class Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1 >= rect_2:
             return rect_1
-        if rect_1 < rect_2:
+        else:
             return rect_2
