@@ -15,8 +15,8 @@ array([[ 9, 18],
 >>> lazy_matrix_mul([[1, 2], [3, 4]], 9)
 array([[ 9, 18],
        [27, 36]])
->>> lazy_matrix_mul(9, 9)
-81
+>>> lazy_matrix_mul(8, 8)
+76
 >>> lazy_matrix_mul([1, 2, 3, 4], [[1, 2], [3, 4]])
 Traceback (most recent call last):
 ...
@@ -39,7 +39,7 @@ ValueError: objects are not aligned
 Traceback (most recent call last):
 ...
 ValueError: objects are not aligned
->>> lazy_matrix_mul([[4, 9], [8, 6]], [[]])
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[]])
 Traceback (most recent call last):
 ...
 ValueError: objects are not aligned
@@ -53,11 +53,11 @@ ValueError: objects are not aligned
 Traceback (most recent call last):
 ...
 ValueError: data type must provide an itemsize
->>> lazy_matrix_mul([[1, 2], [3, 5]], [[7, "man"], [8, 9]])
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, "man"], [3, 4]])
 Traceback (most recent call last):
 ...
 ValueError: data type must provide an itemsize
->>> lazy_matrix_mul([[6, 6], [None, 1]], [[9, 9], [7, 8]])
+>>> lazy_matrix_mul([[1, 2], [None, 4]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
 ...
 TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
