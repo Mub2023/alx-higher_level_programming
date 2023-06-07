@@ -14,6 +14,6 @@ matrix = [
     [4, 5, 5, 6 , -5, 10]
 ]
 noneL = None
-print(matrix_divided(not_list, 20))
+print(matrix_divided(matrixS, 20))
 
 print(matrix)

@@ -12,4 +12,4 @@ def lazy_matrix_mul(m_a, m_b):
     Arg: m_a: matrix 1
     m_b: matrix 2."""
 
-    return n.dot(m_a, m_b)
+    return (n.matmul(m_a, m_b))
