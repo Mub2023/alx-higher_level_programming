@@ -17,13 +17,13 @@ def matrix_divided(matrix, div):
         raise TypeError(ERR)
     if not isinstance(matrix, list):
         raise TypeError(ERR)
-    for l in matrix:
-        if not isinstance(l, list):
+    for x in matrix:
+        if not isinstance(x, list):
             raise TypeError(ERR)
     if not all(isinstance(e, (int, float)) for row in matrix for e in row):
         raise TypeError(ERR)
-    for l in matrix:
-        if len(l) == 0:
+    for x in matrix:
+        if len(x) == 0:
             raise TypeError(ERR)
     new_matrix = matrix.copy()
     first_row = len(new_matrix[0])
