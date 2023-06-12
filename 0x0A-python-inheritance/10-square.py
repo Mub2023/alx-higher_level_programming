@@ -3,12 +3,12 @@
 a class Square that inherits
 Rectangle (9-rectangle.py) i cant get my inhertance.
 """
-Rectangle = __import__ ('9-rectangle').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
     """Square class that inherit
-    Rectangle class and change to 
+    Rectangle class and change to
     Square class ^_^"""
     def __init__(self, size):
         """change to
