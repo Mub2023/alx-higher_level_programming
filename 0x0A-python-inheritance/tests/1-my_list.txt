@@ -8,3 +8,16 @@
 [1, 2, 3, 5, 6, 7, 55]
 >>> print(my_list)
 [3, 5, 2, 7, 1, 55, 6]
+>>> my_list.append(22)
+>>> my_list.print_sorted()
+[1, 2, 3, 5, 6, 7, 22, 55]
+>>> my_list = None
+>>> print(my_list)
+None
+>>> my_list = [3, 5, 2, 7, 1, 55, 6]
+>>> my_list.append(5)
+>>> my_list.append('a')
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+AttributeError: 'list' object has no attribute 'print_sorted'
