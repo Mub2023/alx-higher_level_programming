@@ -11,6 +11,5 @@ def save_to_json_file(my_obj, filename):
     my_obj: is the python object
     filename: is the txt file will be written in
     """
-    load = json.dumps(my_obj)
     with open(filename, "w") as x:
-        return x.write(load)
+        json.dump(my_obj, x)
