@@ -1,40 +1,49 @@
 #!/usr/bin/python3
-"""a script that reads stdin
-line by line and computes metrics"""
-import sys
+"""Reads from standard input and computes metrics.
+    - Total file size up to that point.
+    - Count of read status codes up to that point.
+"""
 
 
-def print_stat(size, known_codes):
-    """print the stats of size and status"""
+def print_stats(size, Scode):
+    """Print accumulated metrics."""
     print("File size: {}".format(size))
-    for x, v in sorted(known_codes.items()):
-        if v != 0:
-            print("{}: {}".format(x, v))
+    for k in sorted(Scode):
+        print("{}: {}".format(k, Scode[k]))
 
 
-size = 0
-known_codes = {'200': 0, '301': 0, '400': 0, '401': 0,
-               '403': 0, '404': 0, '405': 0, '500': 0}
-it = 0
+if __name__ == "__main__":
+    import sys
 
-try:
-    for wi in sys.stdin:
-        it += 1
-        wi = wi.split()
-        if len(wi) >= 2:
-            temp = it
-            if wi[-2] in known_codes:
-                known_codes[wi[-2]] += 1
-                it += 1
+    size = 0
+    Scode = {}
+    known_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    ct = 0
+
+    try:
+        for line in sys.stdin:
+            if ct == 10:
+                print_stats(size, Scode)
+                ct = 1
+            else:
+                ct += 1
+
+            line = line.split()
+
             try:
-                size += int(wi[-1])
-                if temp == it:
-                    it += 1
+                size += int(line[-1])
+            except(IndexError, ValueError):
+                pass
+            try:
+                if line[-2] in known_codes:
+                    if Scode.get(line[-2], -1) == -1:
+                        Scode[line[-2]] = 1
+                    else:
+                        Scode[line[-2]] += 1
             except IndexError:
                 pass
-        if it % 10 == 0:
-            print_stat(size, known_codes)
+        print_stats(size, Scode)
 
-    print_stat(size, known_codes)
-except KeyboardInterrupt:
-    print_stat(size, known_codes)
+    except KeyboardInterrupt:
+        print_stats(size, Scode)
+        raise
