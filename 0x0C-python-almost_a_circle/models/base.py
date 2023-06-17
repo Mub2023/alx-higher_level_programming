@@ -137,7 +137,7 @@ class Base:
             mc.penup()
         mc.goto(-200, 200)
         for si in list_squares:
-            mc.goto(mc.xcor() + (si.width + 20), mc.ycor() - (mc.height + 20))
+            mc.goto(mc.xcor() + (si.width + 20), mc.ycor() - (si.height + 20))
             mc.up()
             mc.down()
             for z in range(2):
