@@ -125,8 +125,16 @@ class Base:
         mc.color('#ffffff')
         mc.penup()
         mc.goto(-200, 200)
+        rectangle_colors = ["orchid", "brown", "violet", "chocolate",
+                            "blue", "green", "purple", "orange", "pink"]
+        color_index = 0
+
         for re in list_rectangles:
+            current_color = rectangle_colors[color_index]
+            mc.color(current_color, current_color)
+            color_index = (color_index + 1) % len(rectangle_colors)
             mc.goto(mc.xcor() + (re.width + 20), mc.ycor() - (re.height + 20))
+            mc.begin_fill()
             mc.up()
             mc.down()
             for z in range(2):
@@ -135,9 +143,16 @@ class Base:
                 mc.forward(re.height)
                 mc.left(90)
             mc.penup()
+            mc.end_fill()
         mc.goto(-200, 200)
+        square_colors = ["red", "yellow", "cyan", "magenta", "white"]
+        color_index = 0
         for si in list_squares:
+            current_color = square_colors[color_index]
+            mc.color(current_color, current_color)
+            color_index = (color_index + 1) % len(square_colors)
             mc.goto(mc.xcor() + (si.width + 20), mc.ycor() - (si.height + 20))
+            mc.begin_fill()
             mc.up()
             mc.down()
             for z in range(2):
@@ -146,4 +161,5 @@ class Base:
                 mc.forward(si.height)
                 mc.left(90)
             mc.penup()
-        mc.screen().exitonclick()
+            mc.end_fill()
+        turtle.Screen().exitonclick()
