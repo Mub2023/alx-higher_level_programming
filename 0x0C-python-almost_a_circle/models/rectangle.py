@@ -28,7 +28,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """get/set the width of the Rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -42,7 +42,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """get/set the height of the Rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -56,7 +56,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """get/set the x  of the Rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -70,7 +70,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """get/set the y  of the Rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -105,9 +105,12 @@ class Rectangle(Base):
         a dictionary: key/value (keyworded arguments)
         like id=55
         kwargs will beskipped if *args exists and is not empty"""
-        if args and len(args) != 0:
+        if args is not None and len(args) != 0:
             if len(args) > 0:
-                self.id = args[0]
+                if args[0] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                else:
+                    self.id = args[0]
             if len(args) > 1:
                 self.width = args[1]
             if len(args) > 2:
@@ -116,10 +119,15 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) > 4:
                 self.y = args[4]
-        elif kwargs and len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key in ("id", "width", "height", "x", "y"):
-                    setattr(self, key, value)
+        else:
+            if kwargs and len(kwargs) != 0:
+                for key, value in kwargs.items():
+                    if key in ("id", "width", "height", "x", "y"):
+                        if key == 'id' and value is None:
+                            self.__init__(self.width, self.height,
+                                          self.x, self.y)
+                        else:
+                            setattr(self, key, value)
 
     def to_dictionary(self):
         """that returns the dictionary representation of a Rectangle"""

@@ -52,7 +52,7 @@ class Base:
         JSON string representation json_string
         Arg:
             json_string: is a string representing a list of dictionaries"""
-        if json_string is None and len(json_string) > 0:
+        if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
