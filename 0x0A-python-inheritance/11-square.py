@@ -19,13 +19,13 @@ class Square(Rectangle):
         size (int): the size of the Square.
         """
         self.integer_validator("size", size)
-        self.__size = size
         super().__init__(size, size)
+        self.__size = size
 
     def __str__(self):
         """ return, the square description:"""
-        return("[Square] {}/{}".format(self.__size, self.__size))
+        return("[Square] {:d}/{:d}".format(self.__size, self.__size))
 
     def area(self):
         """Return the area of the square"""
-        return self.__size ** 2
+        return super().area()
