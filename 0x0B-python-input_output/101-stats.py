@@ -8,8 +8,8 @@
 def print_stats(size, Scode):
     """Print accumulated metrics."""
     print("File size: {}".format(size))
-    for k in sorted(Scode):
-        print("{}: {}".format(k, Scode[k]))
+    for ka in sorted(Scode):
+        print("{}: {}".format(ka, Scode[ka]))
 
 
 if __name__ == "__main__":
