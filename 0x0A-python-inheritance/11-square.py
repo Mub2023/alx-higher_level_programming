@@ -2,6 +2,7 @@
 """
 a class Square that inherits
 Rectangle (9-rectangle.py) i cant get my inhertance.
+change it to square
 """
 Rectangle = __import__('9-rectangle').Rectangle
 
