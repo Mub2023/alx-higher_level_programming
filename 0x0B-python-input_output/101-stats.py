@@ -3,44 +3,36 @@
     - Total file size up to that point.
     - Count of read status codes up to that point.
 """
+from collections import defaultdict
 
 
 def print_stats(size, Scode):
     """Print accumulated metrics."""
     print("File size: {}".format(size))
     for k in sorted(Scode):
-        print("{}: {}".format(k, Scode[k]), end="")
+        print("{}: {}".format(k, Scode[k]))
 
 
 if __name__ == "__main__":
     import sys
 
     size = 0
-    Scode = {}
-    known_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    Scode = defaultdict(int)
     ct = 0
 
     try:
         for line in sys.stdin:
             if ct == 10:
                 print_stats(size, Scode)
-                ct = 1
-            else:
-                ct += 1
+                ct = 0
+            ct += 1
 
             line = line.split()
 
             try:
                 size += int(line[-1])
-            except(IndexError, ValueError):
-                pass
-            try:
-                if line[-2] in known_codes:
-                    if Scode.get(line[-2], -1) == -1:
-                        Scode[line[-2]] = 1
-                    else:
-                        Scode[line[-2]] += 1
-            except IndexError:
+                Scode[line[-2]] += 1
+            except (IndexError, ValueError):
                 pass
         print_stats(size, Scode)
 
