@@ -10,11 +10,9 @@ Rectangle = __import__('9-rectangle').Rectangle
 class Square(Rectangle):
     """Square class that inherit
     Rectangle class and change to
-    Square class ^_^"""
+    Square class"""
     def __init__(self, size):
-        """change to
-        Square
-
+        """change to Square
         Args:
         size (int): the size of the Square.
         """
