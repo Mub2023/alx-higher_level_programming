@@ -4,7 +4,6 @@ a class Square that inherits
 Rectangle (9-rectangle.py) i cant get my inhertance.
 """
 Rectangle = __import__('9-rectangle').Rectangle
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Square(Rectangle):
@@ -28,4 +27,4 @@ class Square(Rectangle):
 
     def area(self):
         """Return the area of the square"""
-        return super().area()
+        return self.__size ** 2
