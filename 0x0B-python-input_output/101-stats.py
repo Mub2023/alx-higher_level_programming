@@ -4,7 +4,7 @@
     - Count of read status codes up to that point.
 """
 
-a
+
 def print_stats(size, Scode):
     """Print accumulated metrics."""
     print("File size: {}".format(size))
