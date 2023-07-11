@@ -1,0 +1,86 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.integer_validator("a", 0)
+Traceback (most recent call last):
+...
+ValueError: a must be greater than 0
+>>> bg.integer_validator("distance", -9)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+>>> bg.integer_validator("age", 1.5)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("integer", 1)
+
+>>> bg.area(1)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+>>> bg.integer_validator("bool", True)
+Traceback (most recent call last):
+...
+TypeError: bool must be an integer
+>>> bg.integer_validator("comp", comp(7, 7))
+Traceback (most recent call last):
+...
+NameError: name 'comp' is not defined
+>>> bg.integer_validator("tuple", (9, 8))
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
+>>> bg.integer_validator("list", [1, 8, 3])
+Traceback (most recent call last):
+...
+TypeError: list must be an integer
+>>> bg.integer_validator("dict", {"key": "value"})
+Traceback (most recent call last):
+...
+TypeError: dict must be an integer
+>>> bg.integer_validator("set", {"hello", "world"})
+Traceback (most recent call last):
+...
+TypeError: set must be an integer
+>>> bg.integer_validator("frozenset", frozenset(["hi", "wood"]))
+Traceback (most recent call last):
+...
+TypeError: frozenset must be an integer
+>>> bg.integer_validator("by", b"by")
+Traceback (most recent call last):
+...
+TypeError: by must be an integer
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> bg.integer_validator("int")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+>>> bg.integer_validator("int", 1, 2)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+>>> f = __import__("7-base_geometry").__doc__
+>>> len(f) > 1
+True
+>>> x = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(x) > 1
+True
+>>> y = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(y) > 1
+True
+>>> z = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(z) > 1
+True
